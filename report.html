@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Time Report</title>
+    <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+    <style>
+        table { border-collapse: collapse; width: 60%; }
+        th, td { border: 1px solid #aaa; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .low-hours { background-color: #fdd; }
+    </style>
+</head>
+<body>
+    <h2>Employee Total Time Worked</h2>
+    <table>
+        <tr><th>Name</th><th>Total Hours</th></tr><tr class='low-hours'><td>Charlie</td><td>12.00</td></tr>
+<tr class='low-hours'><td>Alice</td><td>8.00</td></tr>
+<tr class='low-hours'><td>Bob</td><td>5.00</td></tr>
+<tr class='low-hours'><td>Short Worker</td><td>1.00</td></tr>
+
+    </table>
+
+    <h3>Work Distribution Pie Chart</h3>
+    <canvas id='myChart' width='600' height='400'></canvas>
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ["Charlie","Alice","Bob","Short Worker"],
+                datasets: [{
+                    label: 'Total Hours',
+                    data: [12.0,8.0,5.0,1.0],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(153, 102, 255, 0.6)',
+                        'rgba(255, 159, 64, 0.6)',
+                        'rgba(100, 255, 218, 0.6)',
+                        'rgba(255, 120, 255, 0.6)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: false
+            }
+        });
+    </script>
+</body>
+</html>
